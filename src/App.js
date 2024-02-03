@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Hero from "./component/2-hero/Hero";
+import Header from "./component/1-header/Header";
+import Main from "./component/3-main/Main";
+import Contact from "./component/4-contact/Contact";
+import Footer from "./component/5-footer/Footer";
+import { useState,useEffect } from "react";
 
 function App() {
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+   window.addEventListener("scroll",()=>{
+    if (window.scrollY >200) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+      
+    }
+
+   })
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="up" className="App">
+      <Header />
+
+      <Hero />
+      <div className="divider" />
+      <Main />
+      <div className="divider" />
+      <Contact />
+      <div className="divider" />
+      <Footer />
+      <a style={{opacity:scroll? 1:0 ,transition:"1s"}} href="#up">
+        <button  className="scroll2up icon-keyboard_arrow_up"></button>
+      </a>
     </div>
   );
 }
