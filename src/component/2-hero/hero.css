@@ -52,6 +52,16 @@ section.hero .avatar {
   color: var(--title);
 }
 
+@media (max-width: 450px){
+  .hero h1.title {
+  color: var(--title);
+  font-size: 2rem;
+  line-height: 3.3rem;
+  margin: 24px 0;
+}
+  
+}
+
 
 @media (max-width: 1100px){
   .animation{
